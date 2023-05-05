@@ -24,8 +24,8 @@ const wishListRoutes = require("./src/routes/wishlist");
 const homeBannerRoutes = require("./src/routes/admin/homeBanner");
 const forgotPasswordRoutes = require("./src/routes/forgotPassword");
 const pincodeRoutes = require("./src/routes/pincode");
-
 const { products } = require("./src/data");
+const mail = require("./src/routes/mail")
 
 env.config();
 app.get("/", (req, res, next) => {
@@ -100,6 +100,7 @@ app.use("/api", adminOrderRoute);
 app.use("/api", wishListRoutes);
 app.use("/api", homeBannerRoutes);
 app.use("/api", pincodeRoutes);
+app.use("/api", mail);
 
 const port = process.env.PORT;
 app.listen(port, () => {

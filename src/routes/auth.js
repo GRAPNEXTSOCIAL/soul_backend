@@ -31,7 +31,7 @@ router.post('/forgot-password', (req, res, next) => {
                 email: user.email,
                 id: user._id
             }
-            const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '15m' });
+            const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1day' });
             const link = `http://localhost:3000/reset-password/${payload.id}/${token}`;
             console.log(link);
             res.send("Password reset link has been sent to your mail.");
