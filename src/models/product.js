@@ -17,6 +17,10 @@ const productSchema = new mongoose.Schema(
     parentId: {
       type: String,
     },
+    mprice: {
+      type: Number,
+      required: true,
+    },
     price: {
       type: Number,
       required: true,
@@ -43,6 +47,10 @@ const productSchema = new mongoose.Schema(
         required: true,
       },
       X3L_quantity: {
+        type: Number,
+        required: true,
+      },
+      FREE_quantity: {
         type: Number,
         required: true,
       },

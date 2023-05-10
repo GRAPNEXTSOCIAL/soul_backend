@@ -82,6 +82,7 @@ exports.getWishlistItems = (req, res) => {
             img: item.img,
             size: item.size,
             color: item.color,
+            mprice: item.mprice,
             price: item.price,
             qty: item.quantity,
           };

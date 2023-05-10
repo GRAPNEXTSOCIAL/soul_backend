@@ -41,6 +41,7 @@ exports.uploadImages = (req, res) => {
 exports.createProduct = (req, res) => {
   const {
     name,
+    mprice,
     price,
     description,
     color,
@@ -51,6 +52,7 @@ exports.createProduct = (req, res) => {
     XL_size,
     X2L_size,
     X3L_size,
+    FREE_size,
     productPictures,
     category,
   } = req.body.products;
@@ -70,11 +72,13 @@ exports.createProduct = (req, res) => {
     parseInt(XL_size) +
     parseInt(X2L_size) +
     parseInt(X3L_size);
+    parseInt(FREE_size);
   const slug = slugify(name);
 
   const product = new Product({
     name,
     slug,
+    mprice,
     price,
     quantity,
     size: {
@@ -84,6 +88,7 @@ exports.createProduct = (req, res) => {
       XL_quantity: XL_size,
       X2L_quantity: X2L_size,
       X3L_quantity: X3L_size,
+      FREE_quantity: FREE_size,
     },
     description,
     color,
@@ -104,6 +109,7 @@ exports.createProducts = (req, res) => {
   req.body.product.map((e) => {
     const {
       name,
+      mprice,
       price,
       description,
       color,
@@ -114,6 +120,7 @@ exports.createProducts = (req, res) => {
       XL_size,
       X2L_size,
       X3L_size,
+      FREE_size,
       productPictures,
       category,
       createdBy,
@@ -133,12 +140,14 @@ exports.createProducts = (req, res) => {
       parseInt(X_size) +
       parseInt(XL_size) +
       parseInt(X2L_size) +
-      parseInt(X3L_size);
+      parseInt(X3L_size) +
+      parseInt(FREE_size);
     const slug = slugify(name);
 
     const product = new Product({
       name,
       slug,
+      mprice,
       price,
       quantity,
       size: {
@@ -148,6 +157,7 @@ exports.createProducts = (req, res) => {
         XL_quantity: XL_size,
         X2L_quantity: X2L_size,
         X3L_quantity: X3L_size,
+        FREE_quantity: FREE_size,
       },
       description,
       color,

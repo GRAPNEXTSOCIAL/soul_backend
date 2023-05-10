@@ -14,6 +14,7 @@ const wishListSchema = new mongoose.Schema(
         },
         quantity: { type: Number, default: 1 },
         price: { type: Number, required: true },
+        mprice: { type: Number, required: true },
         name: { type: String, required: true },
         img: { type: String, required: true },
         size: { type: String, required: true },
